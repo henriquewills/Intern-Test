@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Feb  3 18:15:12 2021
-
-@author: Henrique Wills
-"""
+## Using the BeautifulSoup package to extract the webpage HTML code.
 
 import requests
 from bs4 import BeautifulSoup
