@@ -1,0 +1,115 @@
+
+<!-- HTML test page of the CloudFront video source -->
+
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <title>Test 1 - CloudFront</title>
+      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+      <style>
+          body {
+              font-family: 'Roboto', sans-serif;
+          }
+      </style>
+      <link rel="stylesheet" href="//samples.streamroot.io/web/assets/demo-pages.css">
+
+      <!-- Makes the button style -->
+      <link rel="stylesheet" href="{{ url_for('static', filename='CSS_proprietary.css') }}">
+
+      <!-- Makes the header -->
+      <script src="//samples.streamroot.io/web/assets/header.js"></script>
+
+      <!-- Video.js Builds -->
+      <link href="//vjs.zencdn.net/7.4.1/video-js.min.css" rel="stylesheet">
+      <script src="//vjs.zencdn.net/7.4.1/video.min.js"></script>
+
+      <!-- Streamroot Builds -->
+      <script src="//cdn.streamroot.io/videojs-hls-dna-plugin/1/stable/videojs-hls-dna-plugin.js#streamrootKey=demoswebsiteandpartners"></script>
+      <script src="//cdn.streamroot.io/videojs-hlsjs-plugin/1/stable/videojs-hlsjs-plugin.js"></script>
+
+      <!-- Hls.js build -->
+      <script src="//cdn.jsdelivr.net/npm/hls.js@0.12.2/dist/hls.min.js"></script>
+
+      <!-- Streamroot wrapper -->
+      <script src="//cdn.streamroot.io/hlsjs-dna-wrapper/1/stable/hlsjs-dna-wrapper.js"></script>
+
+      <!-- Graphs -->
+      <script src="//tools.streamroot.io/usage-graphs/stable/graphs.js"></script>
+  </head>
+
+  <body>
+      <h1>Test 1 - CloudFront</h1>
+      <center>
+          <div>
+              <video id=demoplayer width=512 height=288 class="video-js vjs-default-skin" controls autoplay muted>
+                  <source id=player_src src='https://wowza-test-cloudfront.streamroot.io/vodOrigin/tos1500.mp4/playlist.m3u8' type="application/x-mpegURL">
+              </video>
+          </div>
+          <div id="streamroot-graphs"></div>
+      </center>
+      <script>
+          var key = "da32565b-dd31-4ae8-9be7-951d6ca79621"
+          // Defining the contentIdGenerator input to identify identical videos, in order to start the P2P upload
+          var contentUrl = document.getElementById("player_src").src
+
+          // It is noted that pages with the same VOD origin will present the same file path at the following Url
+          // reference: ".../vodOrigin/(file_path)"
+          // Therefore, it is used the regular expression utility from JavaScript to match this piece of the Url address
+          // between different websites with the same video origin
+          var video_name = contentUrl.match(/vodOrigin(.+)/,contentUrl)[1]
+
+          function contentIdFn(Url) {
+             return video_name;
+          }
+          var dnaConfig = {
+            "contentIdGenerator" : contentIdFn
+          };
+          var hlsjsConfig = {};
+
+
+          var hls = new Hls(hlsjsConfig);
+          var wrapper = new HlsjsDnaWrapper(hls, key, dnaConfig);
+          var video = document.getElementById('demoplayer');
+          hls.loadSource(contentUrl);
+          hls.attachMedia(video);
+          hls.on(Hls.Events.MANIFEST_PARSED,function() {
+              video.play();
+          });
+      </script>
+
+      <!-- Defining the ON/OFF switch for the Upload of VoD data from the opened webpage to different sources -->
+      <div class="container">
+        <div class="vertical-center left1">Toggle P2P Upload</div>
+        <div class="left1">
+        <label class="switch">
+            <input id="slide" type="checkbox" checked>
+            <div class="slider round"></div>
+        </label>
+        </div>
+
+      </div>
+
+      <script type="text/javascript">
+
+      // Script used for identifying if the switch is turned ON/OFF, from which activates/deactivates the 'dnaUploadAllowed' instance.
+      // This boolean instance is TRUE when the user is willing to let the website upload his loaded content to other users that are
+      // accessing the same video content, and FALSE if he wants to deactivate his uploading.
+
+      document.addEventListener('DOMContentLoaded', function () {
+
+        var checkbox = document.querySelector('input[type="checkbox"]');
+
+        checkbox.addEventListener('change', function () {
+          if (checkbox.checked) {
+            return (Streamroot.instances[0].dnaUploadAllowed = true);
+          } else {
+            // do that
+            return (Streamroot.instances[0].dnaUploadAllowed = false);
+          }
+        });
+      });
+
+      </script>
+
+  </body>
+</html>
