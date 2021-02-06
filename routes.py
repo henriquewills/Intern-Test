@@ -18,8 +18,8 @@ def video():
 
 @app.route("/video_Level3")
 def video_LVL3():
-    return render_template('Video_Level3.html', title='videojs2')
+    return render_template('Video_Level3.html', title='video_Level3')
 
 @app.route("/video_CloudFront")
 def video_CF():
-    return render_template('Video_CloudFront.html', title='videojs2')
+    return render_template('Video_CloudFront.html', title='video_CloudFront')
