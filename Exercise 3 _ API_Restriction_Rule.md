@@ -46,4 +46,4 @@ After sending the postman request, it was given the following response:
 }
 ``` 
 ## Postman JSON collection
-The resulting postman collection in JSON format can be seen in the shared "New Collection.postman_collection.json" file in the Github repository. 
+The resulting postman collection in JSON format can be seen in the shared "Exercise 3 _ postman_collection.json" file in the Github repository. 
