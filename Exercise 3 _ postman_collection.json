@@ -1,0 +1,111 @@
+{
+	"info": {
+		"_postman_id": "b4118e02-b1b5-46e1-9bde-0d6c92b69b70",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Task#3 - API",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "API-Key PH3JQmZaEeuS4w54bH6K8Q.DjRyN0N755sTyEvhObB2LvZ7S2LSejIdXD5rx7DLYlDA2UmfWUqRABa8vaigQwDj",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"name\":\"Rule_Wills\",\r\n    \"type\":\"blacklist\",\r\n    \"countries\":[\"France\", \"Italy\"],\r\n    \"isps\":[\"Orange France Mobile\", \"Wind Tre\"]\r\n}"
+				},
+				"url": {
+					"raw": "api.streamroot.io/v3/customers/:CUSTOMER_ID/geo-isp-restrictions/lists?",
+					"host": [
+						"api",
+						"streamroot",
+						"io"
+					],
+					"path": [
+						"v3",
+						"customers",
+						":CUSTOMER_ID",
+						"geo-isp-restrictions",
+						"lists"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					],
+					"variable": [
+						{
+							"key": "CUSTOMER_ID",
+							"value": "2aadc4f9-41b6-493f-9cd8-8bf1ef3e735f",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "CUSTOMER_ID",
+			"value": "2aadc4f9-41b6-493f-9cd8-8bf1ef3e735f"
+		},
+		{
+			"key": "Streamroot Key",
+			"value": "da32565b-dd31-4ae8-9be7-951d6ca79621"
+		}
+	]
+}
