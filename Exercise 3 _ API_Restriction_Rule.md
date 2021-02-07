@@ -7,13 +7,13 @@ For this exercise, I am using Postman v.8.0.4 to create the proposed restriction
 ## Getting access to the API 
 Before being able to post the new restriction rules in the API, it is required to input the authorization key in the postman "headers" tab. When working with the Key-Value edit type given by the application, the value of the new key should be inputted in the following format: "'Key name' 'Key Value'". Both are obtained through the user's login in the dashboard of the API provider, at the "Api Keys" menu inside the user's profile page. 
 
-![Api Keys menu](https://github.com/henriquewills/Intern_Test/tree/main/images/Api_keys.jpg)
-![Postman Key Auth](https://github.com/henriquewills/Intern_Test/tree/main/images/API_Key_Auth.jpg)
+![Api Keys menu](https://github.com/henriquewills/Intern-Test/tree/main/images/Api_keys.jpg)
+![Postman Key Auth](https://github.com/henriquewills/Intern-Test/tree/main/images/API_Key_Auth.jpg)
 
 Moreover, it was required to input the customer ID as a path variable in the postman "params" tab, in order to fetch the web address linked to the user's profile. The customer ID value can be found at the "Company" menu inside the user's profile page.
 
-![Company menu](https://github.com/henriquewills/Intern_Test/tree/main/images/Customer_ID_Dashboard.jpg)
-![Postman Customer ID](https://github.com/henriquewills/Intern_Test/tree/main/images/Customer_ID.jpg)
+![Company menu](https://github.com/henriquewills/Intern-Test/tree/main/images/Customer_ID_Dashboard.jpg)
+![Postman Customer ID](https://github.com/henriquewills/Intern-Test/tree/main/images/Customer_ID.jpg)
 
 
 ## Restriction Rule
