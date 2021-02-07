@@ -33,7 +33,7 @@ Finally, to run the system, type the following command inside the command prompt
 ### 3. Open Cloudfront and Level3 HTML pages
 After running the system in the command prompt, it is presented the localhost in which the webpages are being run. The server response should be equivalent to what is presented in the image below:
 
-![Python Open](https://github.com/henriquewills/Intern_Test/tree/main/images/Python_Open.jpg)
+![Python Open](https://github.com/henriquewills/Intern-Test/tree/main/images/Python_Open.jpg)
 
 In this example, the server is being run at the "(localhost) = 127.0.0.1:5000". For accessing the CloudFront and Level3 test pages, the user should input in the web browser the following URLs:
 
