@@ -15,16 +15,16 @@ The bug is manifested in the test sample when simulating the webpage access by d
 ## Expected Results
 It would be expected that the program would respond to the access of different users to the video content with the increment of the “Sources” variable, and by starting the P2P service to offload the usage of CDN bandwidth.
 
-![Expected Results](https://github.com/henriquewills/Intern_Test/tree/main/images/bug_absent.jpg)
+![Expected Results](https://github.com/henriquewills/Intern-Test/tree/main/images/bug_absent.jpg)
 ## Actual Results
 The bug could be identified by the amount of offload and the number of sources identified by the debugging utility, which are found to be respectively 0.0% and 0 sources regardless of the number of additional peers that are accessing the same content.
 
-![Actual Results](https://github.com/henriquewills/Intern_Test/tree/main/images/bug_present.jpg)
-![Error 403](https://github.com/henriquewills/Intern_Test/tree/main/images/Error_403.jpg)
+![Actual Results](https://github.com/henriquewills/Intern-Test/tree/main/images/bug_present.jpg)
+![Error 403](https://github.com/henriquewills/Intern-Test/tree/main/images/Error_403.jpg)
 ## Notes
 It was checked that the upload instance was set as TRUE in all of the opened webpages.
 
-![Upload allowed](https://github.com/henriquewills/Intern_Test/tree/main/images/Upload_allowed.jpg)
+![Upload allowed](https://github.com/henriquewills/Intern-Test/tree/main/images/Upload_allowed.jpg)
 
 Cordially,
 
